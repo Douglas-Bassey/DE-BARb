@@ -1,0 +1,421 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#preloader{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:99999;
+
+}
+
+.loader-wrapper{
+
+    width:420px;
+    max-width:90%;
+
+    text-align:center;
+
+}
+
+.logo-wrapper{
+
+    margin-bottom:45px;
+
+}
+
+.loader-logo{
+
+    width:180px;
+
+    opacity:0;
+
+    transform:scale(.8);
+
+    filter:drop-shadow(0 0 25px rgba(212,175,55,.15));
+
+}
+
+#loadingText{
+
+    color:#d4af37;
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    margin-bottom:30px;
+
+    font-weight:500;
+
+}
+
+.progress-track{
+
+    width:100%;
+    height:2px;
+
+    background:#222;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+    to right,
+    #6e5312,
+    #d4af37,
+    #fff3be);
+
+}
+
+.loading-bottom{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:18px;
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+.loader-dot{
+
+    color:#d4af37;
+
+    font-size:18px;
+
+}
+
+#hero{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#050505;
+
+    color:white;
+
+    opacity:0;
+
+}
+
+#hero h1{
+
+    font-size:4rem;
+
+    letter-spacing:4px;
+
+    font-weight:200;
+
+}
+
+
+/* =======================================================
+   CINEMATIC INTRO
+======================================================= */
+
+#cinematicIntro{
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    background: #050505;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9998;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* ======================================
+   SPOTLIGHT
+====================================== */
+
+#cinematicIntro .spotlight{
+
+    position: absolute;
+
+    width: 800px;
+
+    height: 800px;
+
+    background: radial-gradient(circle,
+    rgba(255,220,150,.16) 0%,
+    rgba(255,220,150,.08) 18%,
+    rgba(255,220,150,.03) 45%,
+    transparent 70%);
+
+    filter: blur(20px);
+
+    transform: scale(.3);
+
+    opacity: 0;
+
+}
+
+
+/* ======================================
+   DUST PARTICLES
+====================================== */
+
+#cinematicIntro .particles{
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+    radial-gradient(#ffffff66 1px, transparent 1px),
+
+    radial-gradient(#ffffff22 1px, transparent 1px);
+
+    background-size:
+
+    140px 140px,
+
+    220px 220px;
+
+    background-position:
+
+    0 0,
+
+    60px 60px;
+
+    opacity: .18;
+
+}
+
+
+/* ======================================
+   CHAIR
+====================================== */
+
+#cinematicIntro .chair-wrapper{
+
+    position: absolute;
+
+    bottom: -350px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+}
+
+
+#cinematicIntro .chair{
+
+    width: 1000px;
+
+    max-width: none;
+
+    opacity: 0;
+
+    filter:
+
+    drop-shadow(0 40px 40px rgba(0,0,0,.65));
+
+}
+
+
+/* ======================================
+   TOOLS
+====================================== */
+
+#cinematicIntro .tool{
+
+    position: absolute;
+
+    opacity: 0;
+
+}
+
+
+#cinematicIntro .tool img{
+
+    display: block;
+
+    user-select: none;
+
+    pointer-events: none;
+
+}
+
+
+/* Clippers */
+
+#cinematicIntro .tool-clippers{
+
+    left: 110px;
+
+    bottom: 25%;
+
+}
+
+#cinematicIntro .tool-clippers img{
+
+    width: 150px;
+
+}
+
+/* ======================================
+   MOBILE RESPONSIVE
+====================================== */
+
+@media (max-width: 768px){
+
+    /* Chair */
+
+    #cinematicIntro .chair-wrapper{
+
+        left: 50%;
+
+        bottom: -245%;
+
+        transform: translateX(-50%) scale(2.5);
+
+    }
+
+    #cinematicIntro .chair{
+
+        width: 900px;
+
+        max-width: none;
+
+    }
+
+    /* Clippers */
+
+    #cinematicIntro .tool-clippers{
+
+        left: -50px;
+
+        bottom: 25%;
+
+    }
+
+    #cinematicIntro .tool-clippers img{
+
+        width: 90px;
+
+    }
+
+}
+
+
+/* ======================================
+   FILM GRAIN
+====================================== */
+
+#cinematicIntro::after{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+    radial-gradient(circle,
+    rgba(255,255,255,.02) 1px,
+    transparent 1px);
+
+    background-size: 4px 4px;
+
+    opacity: .18;
+
+    pointer-events: none;
+
+}
+
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width:768px){
+
+    #cinematicIntro .chair{
+
+        width: 240px;
+
+    }
+
+    #cinematicIntro .tool img{
+
+        transform: scale(.8);
+
+    }
+
+    #cinematicIntro .spotlight{
+
+        width: 500px;
+
+        height: 500px;
+
+    }
+
+}
